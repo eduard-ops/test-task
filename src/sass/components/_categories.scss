@@ -1,0 +1,13 @@
+.categories-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  margin-bottom: 165px;
+}
+
+.categories-list__item {
+  flex: 0 0 calc(16.66% - 20px);
+  padding: 10px;
+  margin: 5px;
+}
