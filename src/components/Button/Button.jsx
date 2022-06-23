@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function Button({ item, clickButton }) {
   return (
     <button
@@ -9,3 +11,8 @@ export default function Button({ item, clickButton }) {
     </button>
   );
 }
+
+Button.propTypes = {
+  item: PropTypes.string.isRequired,
+  clickButton: PropTypes.func.isRequired,
+};
