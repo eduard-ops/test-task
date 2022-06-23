@@ -1,3 +1,7 @@
+body {
+  height: 100%;
+}
+
 /*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 /*
 Document
@@ -291,8 +295,8 @@ p {
 .container {
   width: 1200px;
   margin: 0 auto;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 24px;
+  padding-left: 24px;
 }
 
 .header {
@@ -323,6 +327,8 @@ p {
 
 .section {
   padding-top: 60px;
+  min-height: 850px;
+  position: relative;
 }
 
 .categories-button {
@@ -361,16 +367,16 @@ p {
 }
 
 .backdrop {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .modal {
   position: relative;
   background: #422ed4;
-  width: 1120px;
-  height: 162px;
+  max-width: 1120px;
+  height: 180px;
   box-shadow: 0px 100px 80px rgba(80, 76, 103, 0.07), 0px 0px 10.0172px rgba(80, 76, 103, 0.035);
   border-radius: 25px;
   padding: 24px;
@@ -391,9 +397,19 @@ p {
   right: 20px;
 }
 
+.eror-text {
+  text-align: center;
+}
+
 .not-found-wrap {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /*# sourceMappingURL=main.css.map */
