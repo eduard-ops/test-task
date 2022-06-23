@@ -8,15 +8,20 @@ import Modal from 'components/Modal/Modal';
 
 import NotFound from 'components/NotFound';
 
+import Loader from 'components/Loader';
+
 export default function Categories() {
   const [categories, setCategories] = useState([]);
   const [oneCategory, SetOneCategory] = useState({});
   const [randomJoke, setRandomJock] = useState({});
   const [error, setError] = useState(false);
+  const [showModal, setShowModal] = useState(true);
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     const fetchApiCategories = async () => {
       try {
+        setLoader(true);
         const fetchRes = await api.fetchCategories();
         if (fetchRes.length === 0) {
           throw new Error();
@@ -24,6 +29,8 @@ export default function Categories() {
         setCategories(fetchRes);
       } catch (error) {
         setError(true);
+      } finally {
+        setLoader(false);
       }
     };
     fetchApiCategories();
@@ -32,6 +39,11 @@ export default function Categories() {
   useEffect(() => {
     const fetchApiRandom = async () => {
       const fetchRes = await api.fetchRandomJoke();
+      if (fetchRes.value === undefined) {
+        setShowModal(false);
+        return;
+      }
+
       setRandomJock(fetchRes);
     };
 
@@ -57,7 +69,12 @@ export default function Categories() {
         </ul>
       )}
       {error && <NotFound />}
-      <Modal text={oneCategory.value ?? randomJoke.value} />
+      {loader && <Loader />}
+      {showModal ? (
+        <Modal text={oneCategory.value ?? randomJoke.value} />
+      ) : (
+        <h2 className="eror-text">Sorry can't find Chuck's quote</h2>
+      )}
     </>
   );
 }
