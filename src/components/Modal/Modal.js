@@ -1,5 +1,7 @@
 import modalPng from '../../images/modal-n.png';
 
+import PropTypes from 'prop-types';
+
 export default function Modal({ text }) {
   return (
     <div className="backdrop">
@@ -10,3 +12,7 @@ export default function Modal({ text }) {
     </div>
   );
 }
+
+Modal.propTypes = {
+  text: PropTypes.string,
+};
