@@ -283,6 +283,11 @@ h6 {
   margin: 0;
 }
 
+p {
+  padding: 0;
+  margin: 0;
+}
+
 .container {
   width: 1200px;
   margin: 0 auto;
@@ -343,10 +348,16 @@ h6 {
 }
 
 .categories-list {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 165px;
+}
+
+.categories-list__item {
+  flex: 0 0 calc(16.66% - 20px);
+  padding: 10px;
+  margin: 5px;
 }
 
 .backdrop {
@@ -378,5 +389,11 @@ h6 {
   position: absolute;
   top: -135px;
   right: 20px;
+}
+
+.not-found-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 /*# sourceMappingURL=main.css.map */
