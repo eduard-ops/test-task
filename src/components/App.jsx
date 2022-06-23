@@ -1,17 +1,20 @@
-export const App = () => {
+import Container from './Container';
+import Header from './Header/Header';
+import Main from './Main';
+import Title from './Title';
+import Section from './Section';
+import Categories from './Categories';
+
+export function App() {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        textTransform: 'uppercase',
-        color: '#010101',
-      }}
-    >
-      React homework template
-    </div>
+    <Container>
+      <Header />
+      <Main>
+        <Section>
+          <Title title={'Categories'} />
+          <Categories />
+        </Section>
+      </Main>
+    </Container>
   );
-};
+}
